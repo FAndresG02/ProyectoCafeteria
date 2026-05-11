@@ -1,0 +1,22 @@
+# Node
+node_modules/
+dist/
+.angular/
+coverage/
+
+# Java / Spring
+target/
+*.class
+*.jar
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Env
+.env
