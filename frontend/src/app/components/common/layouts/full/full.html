@@ -1,0 +1,56 @@
+<div class="main-container">
+
+    <!-- Top Toolbar -->
+    <mat-toolbar color="primary" class="topbar telative">
+
+        <!-- div para el encabezado de la barra de navegación -->
+        <div class="navbar-header">
+
+            <!-- Botón para abrir/cerrar el sidebar -->
+            <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="vertical-align: bottom;">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <!-- Logo y título del sistema -->
+            <b>
+                <span style="vertical-align: middle;">
+                    <mat-icon>storefront</mat-icon>
+                </span>
+            </b>
+
+            <span fxShow="false" fxShow.gt-xs>
+                Sistema de Gestión de Cafetería
+            </span>
+
+
+        </div>
+
+        <!-- Este span empuja todo lo que viene después hacia la derecha -->
+        <span fxFlex></span>
+
+        <!-- Queda a la derecha -->
+        <app-header></app-header>
+
+    </mat-toolbar>
+
+    <!-- Contenedor principal con el sidebar y el contenido de la página -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+
+        <!-- Sidebar (navegación lateral) -->
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
+            fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+            <!-- Componente del sidebar (Sidebar) botones del menu del sidebar-->
+            <app-sidebar></app-sidebar>
+
+        </mat-sidenav>
+
+        <!-- Contenido principal de la página -->
+        <mat-sidenav-content class="page-wrapper">
+            <div class="page-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

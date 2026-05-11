@@ -1,0 +1,24 @@
+<button [matMenuTriggerFor]="profile" class="profile-btn">
+  <mat-icon class="user-icon">account_circle</mat-icon>
+</button>
+
+<mat-menu #profile="matMenu" class="profile-menu" >
+
+  <button mat-menu-item (click)="changePassword()">
+    <!-- Icono de cambio de contraseña -->
+    <mat-icon>lock_outline</mat-icon>
+    <div class="menu-item-text">
+      <span>Cambiar contraseña</span>
+      <small>Actualizar credenciales</small>
+    </div>
+  </button>
+
+  <button mat-menu-item class="logout-item" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <div class="menu-item-text">
+      <span>Cerrar sesión</span>
+      <small>Salir del sistema</small>
+    </div>
+  </button>
+
+</mat-menu>

@@ -1,0 +1,65 @@
+<!-- Contenedor del encabezado con título y botón de acción -->
+<div class="header-card">
+    <b>
+        <!-- Título de la sección -->
+        <h4>Administrar Usuarios</h4>
+    </b>
+</div>
+
+<!-- Contenedor del filtro de búsqueda -->
+<div class="filter-card">
+    <!-- Campo de formulario de Angular Material -->
+    <mat-form-field appearance="outline" class="search-field">
+        <!-- Etiqueta del input -->
+        <mat-label>Buscar Usuario</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <!-- Input que ejecuta la función de filtrado al escribir -->
+        <input matInput (keyup)="applyFilter($event)" placeholder="Nombre">
+    </mat-form-field>
+</div>
+
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Columna para el nombre del usuario -->
+        <ng-container matColumnDef="name">
+            <!-- Encabezado de la columna -->
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <!-- Celda que muestra el nombre del usuario -->
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <!-- Encabezado de la columna -->
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <!-- Celda que muestra el email del usuario -->
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contactNumber">
+            <!-- Encabezado de la columna -->
+            <th mat-header-cell *matHeaderCellDef>Número de Contacto</th>
+            <!-- Celda que muestra el número de contacto del usuario -->
+            <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <!-- Encabezado de la columna -->
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <!-- Celda que muestra el estado del usuario -->
+            <td mat-cell *matCellDef="let element" class="action-link">
+
+                <div class="action-buttons">
+                    <mat-slide-toggle (change)="onChange($event.checked, element.id)"
+                        matTooltip="Activar o desactivar usuario" matTooltipPosition="right" [checked]="element.status">
+                    </mat-slide-toggle>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Fila de encabezados que usa las columnas definidas -->
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+
+        <!-- Fila de datos que se repite por cada elemento del dataSource -->
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,82 @@
+// Variables
+$sidebar-bg: #1a1a2e;
+$sidebar-hover: #16213e;
+$toolbar-bg: #0f3460;
+$accent: #e8956d;
+$accent-light: #f2b49a;
+$content-bg: #f5f5f0;
+$text-sidebar: rgba(255, 255, 255, 0.6);
+$text-sidebar-active: #f2b49a;
+
+// Layout principal
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Toolbar superior
+.topbar {
+  background: #7b1fa2 !important;
+  height: 56px !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  position: relative;
+
+  .navbar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    button {
+      color: rgba(255, 255, 255, 0.85);
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      mat-icon {
+        font-size: 22px;
+      }
+    }
+
+    b mat-icon {
+      color: $accent;
+      font-size: 26px;
+      vertical-align: middle;
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+// Contenedor del sidenav
+.example-sidenav-container {
+  flex: 1;
+  overflow: hidden;
+
+  // Sidebar
+  #snav {
+    width: 240px;
+    background: $sidebar-bg !important;
+    border-right: none !important;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  // Área de contenido principal
+  .page-wrapper {
+    background: $content-bg;
+
+    .page-content {
+      padding: 24px;
+      min-height: 100%;
+    }
+  }
+}

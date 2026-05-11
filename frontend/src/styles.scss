@@ -1,0 +1,176 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Responsive table
+@media(max-width: 800px) {
+  .responsive_table {
+    overflow-x: auto !important;
+  }
+
+  .mat-table {
+    min-width: 800px;
+  }
+}
+
+.mat-row {
+  height: auto;
+}
+
+.mat-header-cell, .mat-cell {
+  text-align: center !important;
+  padding: 0px 8px 0px 15px !important;
+}
+
+/* ─── SNACKBAR FORZADO ───────────────────────── */
+
+.mat-mdc-snack-bar-container.black-snackbar .mdc-snackbar__surface {
+  background: #000 !important;
+}
+
+.mat-mdc-snack-bar-container.green-snackbar .mdc-snackbar__surface {
+  background: #2e7d32 !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  color: #fff !important;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-button {
+  color: #fff !important;
+}
+
+/* ❌ ELIMINAR TODO EFECTO VISUAL */
+.mat-mdc-snack-bar-container .mat-mdc-button:hover {
+  background: transparent !important;
+}
+
+.mat-mdc-snack-bar-container .mat-ripple-element {
+  display: none !important;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-focus-indicator {
+  display: none !important;
+}
+
+/* 🔥 ESTE ES EL QUE TE FALTABA */
+.mat-mdc-snack-bar-container .mat-mdc-button .mdc-button__ripple {
+  display: none !important;
+}
+
+//---------------------------------------
+
+.spacer {
+  flex: 1 auto;
+}
+
+// ─── Sidebar items ────────────────────────────────────────────
+.mat-nav-list .mat-list-item {
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 0;
+  position: relative;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &.active-link {
+    background: rgba(232, 149, 109, 0.15) !important;
+    color: #f2b49a;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #e8956d;
+      border-radius: 0 2px 2px 0;
+    }
+  }
+}
+
+// ─── Scrollbar personalizada ──────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.profile-menu {
+  .menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.08);
+    cursor: default;
+  }
+
+  .avatar-lg {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #e8956d;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 500; color: white;
+  }
+
+  .menu-user-name { font-size: 14px; font-weight: 500; margin: 0; }
+  .menu-user-email { font-size: 12px; color: #888; margin: 0; }
+
+  .menu-item-text {
+    display: flex; flex-direction: column;
+    span { font-size: 13px; }
+    small { font-size: 11px; color: #888; }
+  }
+
+  .logout-item {
+    color: #A32D2D !important;
+    mat-icon { color: #A32D2D !important; }
+    small { color: #A32D2D !important; opacity: 0.7; }
+    &:hover { background: #FCEBEB !important; }
+  }
+}
+
+
+/* Estilos para el menu quitar trasnparente del menu perfil*/
+.mat-mdc-menu-panel.profile-menu {
+  background-color: #ffffff !important;
+}
+
+.mat-mdc-menu-panel.profile-menu .mat-mdc-menu-item:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* Estilos para el menu quitar trasnparente del menu categoria al momento de añadir una categoria*/
+.mat-mdc-select-panel.custom-select {
+  background-color: #ffffff !important;
+}
+
+.mat-mdc-select-panel.custom-select .mat-mdc-option:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.mat-mdc-option {
+  color: #000000 !important;
+}
+
+
+.mat-mdc-tooltip {
+  z-index: 9999 !important;
+}

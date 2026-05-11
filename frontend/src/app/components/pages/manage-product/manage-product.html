@@ -1,0 +1,95 @@
+<!-- Contenedor del encabezado con título y botón de acción -->
+<div class="header-card">
+  <b>
+    <!-- Título de la sección -->
+    <h4>Administrar Productos</h4>
+  </b>
+
+  <!-- Botón que ejecuta la función para agregar un nuevo producto -->
+  <button class="add-btn" (click)="handleAddAction()">
+    <!-- Ícono visual del botón -->
+    <mat-icon>add_circle</mat-icon>
+    Añadir Producto
+  </button>
+</div>
+
+<!-- Contenedor del filtro de búsqueda -->
+<div class="filter-card">
+  <!-- Campo de formulario de Angular Material -->
+  <mat-form-field appearance="outline" class="search-field">
+    <!-- Etiqueta del input -->
+    <mat-label>Buscar Producto</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <!-- Input que ejecuta la función de filtrado al escribir -->
+    <input matInput (keyup)="applyFilter($event)" placeholder="Nombre">
+  </mat-form-field>
+</div>
+
+<!-- Contenedor responsive para la tabla -->
+<div class="responsive_table">
+
+  <!-- Tabla de Angular Material vinculada a un dataSource -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Columna para el nombre del producto -->
+    <ng-container matColumnDef="name">
+      <!-- Encabezado de la columna -->
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <!-- Celda que muestra el nombre del producto -->
+      <td mat-cell *matCellDef="let element" class="action-link"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Columna para la categoría -->
+    <ng-container matColumnDef="categoryName">
+      <th mat-header-cell *matHeaderCellDef>Categoría</th>
+      <!-- Muestra el nombre de la categoría -->
+      <td mat-cell *matCellDef="let element" class="action-link"> {{element.categoryName}} </td>
+    </ng-container>
+
+    <!-- Columna para la descripción -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <!-- Muestra la descripción del producto -->
+      <td mat-cell *matCellDef="let element" class="action-link"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Columna para el precio -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <!-- Muestra el precio del producto -->
+      <td mat-cell *matCellDef="let element" class="action-link"> {{element.price}} </td>
+    </ng-container>
+
+    <!-- Columna de acciones (editar, eliminar, activar/desactivar) -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+
+      <!-- Celda con botones de acciones -->
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <div class="action-buttons">
+
+          <button mat-icon-button matTooltip="Editar" matTooltipPosition="left" (click)="handleEditAction(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="handleDeleteAction(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <mat-slide-toggle (change)="onChange($event.checked, element.id)" matTooltip="Activar o desactivar producto"
+             matTooltipPosition="right" [checked]="element.status">
+          </mat-slide-toggle>
+
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Fila de encabezados que usa las columnas definidas -->
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+
+    <!-- Fila de datos que se repite por cada elemento del dataSource -->
+    <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
+  </table>
+
+</div>

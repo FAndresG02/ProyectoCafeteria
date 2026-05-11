@@ -1,0 +1,67 @@
+/* Toolbar del dialog */
+mat-toolbar{
+  background-color: #8e24aa; 
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+mat-error {
+  color: #f44336; 
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+mat-dialog-actions{
+
+  .iniciar-sesion {
+    background-color: #8e24aa; 
+    color: white;
+    border-radius: 10px;
+    
+    &:hover {
+      background-color: #6a1b9a !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(123, 31, 162, 0.4);
+    }
+  }
+
+  .cerrar {
+    background-color: #f44336;
+    color: white;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #b71c1c !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+    }
+  }
+
+    // ── Solo en móvil ──
+  @media (max-width: 599px) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 16px 16px;
+    box-sizing: border-box;
+    width: 100%;
+
+    button {
+      margin: 0 !important;
+      width: 100%;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+
+  @media (max-width: 599px) {
+    margin-bottom: 10px;
+  }
+}

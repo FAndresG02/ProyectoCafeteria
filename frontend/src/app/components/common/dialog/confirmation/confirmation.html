@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <span class="title">Confirmación</span>
+  <span class="spacer"></span>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-dialog-content>
+  <div class="message-wrapper">
+    <p class="message">
+      ¿Estás seguro de que quieres {{this.details.message}} ?
+    </p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button mat-raised-button class="btn-confirm" (click)="handleChangeAction()">
+    <mat-icon>check</mat-icon>
+    Confirmar
+  </button>
+
+  <button mat-raised-button class="btn-cancel" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+    Cancelar
+  </button>
+
+</mat-dialog-actions>

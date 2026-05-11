@@ -1,0 +1,32 @@
+<mat-action-list appAccordion>
+  <!-- Contenedor principal del menú lateral usando Angular Material -->
+
+  <div class="nav-section-label">Principal</div>
+  <!-- Título de la sección del menú -->
+
+  <!-- Itera sobre cada elemento del menú definido en MenuItems -->
+  <!-- Aplica la clase 'selected' cuando la ruta está activa -->
+  <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+    [group]="menuitem.state">
+    <!-- Agrupa elementos para comportamiento de acordeón -->
+    <!-- Navega dinámicamente a rutas como: /cafe/dashboard, /cafe/category -->
+    <a appAccordionToggle [routerLink]="['/cafe/', menuitem.state]"
+      *ngIf="menuitem.type === 'link' && (menuitem.role === '' || menuitem.role === userRole)">
+      <!-- 
+         Condición para mostrar el item:
+         - type === 'link' → solo enlaces (no dropdowns u otros tipos)
+         - role === '' → visible para todos
+         - role === userRole → visible solo si el usuario tiene ese rol
+       -->
+
+      <mat-icon>{{ menuitem.icon }}</mat-icon>
+      <!-- Icono del menú (ej: dashboard, category, etc.) -->
+
+      <span class="nav-text">{{ menuitem.name }}</span>
+      <!-- Texto visible del menú -->
+
+    </a>
+
+  </mat-list-item>
+
+</mat-action-list>

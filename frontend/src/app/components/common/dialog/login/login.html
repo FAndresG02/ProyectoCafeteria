@@ -1,0 +1,75 @@
+<!-- Toolbar superior -->
+<mat-toolbar>
+    <mat-toolbar-row style="display: flex; align-items: center;">
+        <span>Iniciar Sesión</span>
+
+        <!-- Empuja el botón a la derecha -->
+        <span style="flex: 1 1 auto;"></span>
+
+        <!-- Botón cerrar -->
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+
+    <!-- IMPORTANTE: ngSubmit agregado -->
+    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+
+        <div style="display: flex; flex-direction: column;">
+
+            <!-- EMAIL -->
+            <mat-form-field appearance="fill">
+                <mat-label>Correo Electrónico</mat-label>
+                <input matInput formControlName="email" required>
+
+                <mat-error *ngIf="loginForm.controls['email'].touched">
+                    <span *ngIf="loginForm.controls['email'].hasError('required')">
+                        El correo electrónico es obligatorio
+                    </span>
+                    <span *ngIf="loginForm.controls['email'].hasError('email')">
+                        El correo electrónico no es válido
+                    </span>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- CONTRASEÑA -->
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" [type]="password ? 'password' : 'text'">
+
+
+                <button type="button" mat-icon-button matSuffix (click)="password = !password">
+                    <mat-icon>{{ password ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+
+                <mat-error *ngIf="loginForm.controls['password'].touched">
+                    <span *ngIf="loginForm.controls['password'].hasError('required')">
+                        La contraseña es obligatoria
+                    </span>
+                </mat-error>
+            </mat-form-field>
+
+
+        </div>
+
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button class="iniciar-sesion" mat-flat-button type="submit" (click)="handleSubmit()"
+        [disabled]="loginForm.invalid && loginForm.dirty">
+        <mat-icon>login</mat-icon> Iniciar Sesión
+    </button>
+
+    <!-- CERRAR -->
+    <button class="cerrar" mat-raised-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+        Cerrar
+    </button>
+
+</mat-dialog-actions>

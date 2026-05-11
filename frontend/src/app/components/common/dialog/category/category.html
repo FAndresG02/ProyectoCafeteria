@@ -1,0 +1,83 @@
+<!-- Barra superior del diálogo (modal) -->
+<mat-toolbar class="toolbar">
+
+    <!-- Muestra la acción (Agregar/Editar) + texto "Categoria" -->
+    <span> {{this.dialogData.action}} Categoria </span>
+
+    <!-- Espaciador para empujar el botón a la derecha -->
+    <span class="spacer"></span>
+
+    <!-- Botón para cerrar el diálogo -->
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+
+<!-- Contenido principal del diálogo -->
+<mat-dialog-content>
+
+    <!-- Formulario reactivo enlazado a categoryForm -->
+    <form [formGroup]="categoryForm" class="form">
+
+        <!-- Contenedor con layout en columna -->
+        <div fxFlex fxLayout="column">
+
+            <!-- Contenedor adicional con flexbox -->
+            <div style="display: flex; flex-direction: column;">
+
+                <!-- Campo de entrada con estilo Angular Material -->
+                <mat-form-field appearance="fill">
+
+                    <!-- Etiqueta del campo -->
+                    <mat-label>Nombre</mat-label>
+
+                    <!-- Input vinculado al control 'name' del formulario -->
+                    <input matInput formControlName="name" required="">
+
+                    <!-- Validación: si el campo fue tocado y es inválido -->
+                    @if (categoryForm.controls['name'].touched && categoryForm.controls['name'].invalid) {
+
+                    <!-- Mensaje de error -->
+                    <mat-error>
+
+                        <!-- Validación específica: campo requerido -->
+                        @if (categoryForm.controls['name'].hasError('required')) {
+                        <span>Este campo es obligatorio</span>
+                        }
+
+                    </mat-error>
+                    }
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+    </form>
+
+</mat-dialog-content>
+
+<!-- Acciones del diálogo (botones inferiores) -->
+<mat-dialog-actions align="end">
+
+    <!-- Botón para guardar (solo activo si el formulario es válido y modificado) -->
+    <button 
+        class="saveButton" 
+        mat-raised-button 
+        type="submit" 
+        (click)="handleSubmit()"
+        [disabled]="!(categoryForm.valid && categoryForm.dirty)">
+
+        <!-- Ícono del botón -->
+        <mat-icon>save</mat-icon>
+
+        <!-- Texto dinámico del botón (Agregar/Editar) -->
+        {{action}}
+    </button>
+
+    <!-- Botón para cancelar y cerrar el diálogo -->
+    <button class="cancelButton" mat-raised-button mat-dialog-close>
+        <mat-icon>cancel</mat-icon>Cancelar
+    </button>
+
+</mat-dialog-actions>

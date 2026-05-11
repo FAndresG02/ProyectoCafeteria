@@ -1,0 +1,87 @@
+:host {
+    display: block;
+    width: 260px;
+    min-height: 100vh;
+    background: #1a1f2e;
+    font-family: inherit;
+}
+
+// Sección con etiqueta separadora
+.nav-section-label {
+    padding: 16px 24px 6px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+// Lista de navegación
+mat-action-list {
+    padding: 8px 0 !important;
+}
+
+// Cada ítem
+mat-list-item {
+    margin: 2px 8px !important;
+    border-radius: 8px !important;
+    height: auto !important;
+
+    // Hace que el mat-list-item no ocupe todo el ancho
+    &::ng-deep .mdc-list-item__content {
+        width: fit-content !important;
+    }
+
+    a {
+        display: inline-flex; 
+        align-items: center;
+        gap: 12px;
+        padding: 10px 16px;
+        width: 70%; 
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 8px;
+        transition: background 0.15s ease, color 0.15s ease;
+
+        mat-icon {
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            flex-shrink: 0;
+            color: rgba(255, 255, 255, 0.5);
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .nav-text {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: rgba(255, 255, 255, 0.9);
+
+            mat-icon {
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+
+    // Estado activo (routerLinkActive="selected")
+    &.selected a {
+        background: rgba(103, 93, 220, 0.25);
+        color: #a99ef5;
+
+        mat-icon {
+            background: rgba(103, 93, 220, 0.4);
+            color: #c4bbff;
+        }
+    }
+}

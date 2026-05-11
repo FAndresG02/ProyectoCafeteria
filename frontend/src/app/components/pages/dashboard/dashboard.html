@@ -1,0 +1,42 @@
+<div class="header-card">
+    <b>
+        <h4>Panel de detalles</h4>
+    </b>
+</div>
+
+<div class="dashboard-wrapper">
+
+  <div class="row">
+
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total de Categorías</h2>
+          <h1 class="title">{{data?.['categoria: ']}}</h1>
+          <p><button class="button" [routerLink]="['/cafe/category']">Ver Categorías</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total de Productos</h2>
+          <h1 class="title">{{data?.['producto: ']}}</h1>
+          <p><button class="button" [routerLink]="['/cafe/product']">Ver Productos</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2 class="title">Total de Facturas</h2>
+          <h1 class="title">{{data?.['factura: ']}}</h1>
+          <p><button class="button" [routerLink]="['/cafe/factura']">Ver Facturas</button></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

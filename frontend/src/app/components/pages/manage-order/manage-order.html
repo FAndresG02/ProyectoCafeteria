@@ -1,0 +1,214 @@
+<div class="header-card">
+    <b>
+        <h4>Administrar Orden</h4>
+    </b>
+    <button mat-flat-button [disabled]="validateSubmit()" (click)="submitAction()">
+        <mat-icon>print</mat-icon>Eviar & Imprimir Orden
+    </button>
+</div>
+
+
+<div class="customer_table">
+
+    <b><span>Detalles del Cliente</span></b>
+
+    <form [formGroup]="manageOrderForm">
+
+        <div class="form-row">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre del Cliente</mat-label>
+                <input matInput formControlName="name" required>
+                @if (manageOrderForm.get('name')?.invalid && manageOrderForm.get('name')?.touched) {
+                <mat-error>
+                    @if (manageOrderForm.controls['name'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['name'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required>
+                @if (manageOrderForm.get('email')?.invalid && manageOrderForm.get('email')?.touched) {
+                <mat-error>
+                    @if (manageOrderForm.controls['email'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['email'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Número de contacto</mat-label>
+                <input matInput formControlName="contactNumber" required>
+                @if (manageOrderForm.get('contactNumber')?.invalid && manageOrderForm.get('contactNumber')?.touched)
+                {
+                <mat-error>
+                    @if (manageOrderForm.controls['contactNumber'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['contactNumber'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Métod de pago</mat-label>
+                <mat-select formControlName="paymentMethod" required>
+                    <mat-option value="Efectivo">Efectivo</mat-option>
+                    <mat-option value="Tarjeta">Tarjeta</mat-option>
+                </mat-select>
+                @if (manageOrderForm.get('paymentMethod')?.invalid && manageOrderForm.get('paymentMethod')?.touched)
+                {
+                <mat-error>
+                    @if (manageOrderForm.controls['paymentMethod'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['paymentMethod'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+        </div>
+
+    </form>
+</div>
+
+<div class="product_table">
+
+    <b><span>Detalles del Producto</span></b>
+
+    <form [formGroup]="manageOrderForm">
+
+        <div class="form-row">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Categoría</mat-label>
+
+                <mat-select formControlName="category" required (selectionChange)="getProductsByCategory($event.value)">
+                    @for (category of categories; track category) {
+                    <mat-option [value]="category">{{ category.name }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Producto</mat-label>
+
+                <mat-select formControlName="product" required (selectionChange)="getProductDetails($event.value)">
+                    @for (product of products; track product) {
+                    <mat-option [value]="product">{{ product.name }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="price" required>
+                @if (manageOrderForm.get('price')?.invalid && manageOrderForm.get('price')?.touched) {
+                <mat-error>
+                    @if (manageOrderForm.controls['price'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['price'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cantidad</mat-label>
+                <input matInput formControlName="quantity" required (keyup)="setQuantity($event)" #input>
+                @if (manageOrderForm.get('quantity')?.invalid && manageOrderForm.get('quantity')?.touched) {
+                <mat-error>
+                    @if (manageOrderForm.controls['quantity'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['quantity'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Total</mat-label>
+                <input matInput formControlName="total" required readonly>
+                @if (manageOrderForm.get('total')?.invalid && manageOrderForm.get('total')?.touched) {
+                <mat-error>
+                    @if (manageOrderForm.controls['total'].errors?.['required']) {
+                    <span>Este campo es obligatorio</span>
+                    } @else if (manageOrderForm.controls['total'].errors?.['pattern']) {
+                    <span>Este campo es inválido</span>
+                    }
+                </mat-error>
+                }
+            </mat-form-field>
+
+        </div>
+
+
+    </form>
+
+    <div class="btn-validate">
+        <button mat-flat-button [disabled]="validateProductAdd()" (click)="add()">
+            <mat-icon>add</mat-icon>Agregar Producto
+        </button>
+        <button mat-flat-button class="float-right">
+            <mat-icon>monetization_on</mat-icon> Total Acumulado: {{ totalAmount }}
+        </button>
+    </div>
+
+</div>
+
+<hr>
+
+
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nombre del Producto </th>
+            <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Categoría </th>
+            <td mat-cell *matCellDef="let element"> {{ element.category }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Precio </th>
+            <td mat-cell *matCellDef="let element"> {{ element.price }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+            <td mat-cell *matCellDef="let element"> {{ element.quantity }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{ element.total }} </td>
+        </ng-container>]
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let element; let i = index" class="action-link">
+                <button mat-icon-button (click)="handleDeleteAction(i, element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayColumns;"></tr>
+    </table>
+</div>
