@@ -315,7 +315,7 @@ public class UserService {
         return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    //Metodo para cambiar la contraseña
+    //Metodo para recuperar la contraseña
     public ResponseEntity<String> forgotPassword(Map<String, String> requestMap){
 
         try {
