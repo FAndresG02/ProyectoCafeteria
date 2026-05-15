@@ -21,16 +21,12 @@
 
 ##### Registro de usuarios
 ![Registro de usuarios](imagenes/registrarUsuario.png)
-
 ##### Inicio de sesión
 ![Inicio de sesión](imagenes/iniciarSesion.png)
-
 ##### Recuperación de contraseña
 ![Recuperación de contraseña](imagenes/recuperarContrasenia.png)
-
 ##### Mensaje de recuperación en Mailinator
 ![Mensaje de recuperación en Mailinator](imagenes/mensajeRecuperacion.png)
-
 ##### Cambio de contraseña
 ![Cambio de contraseña](imagenes/cambiarContrasenia.png)
 
@@ -65,8 +61,10 @@
 
 #### 7. Administración de pedidos y descarga de facturas PDF para administradores y usuarios normales
 
-##### Administración de pedidos
+##### Administración de pedidos 
 ![Administración de pedidos](imagenes/administrarPedido.png)
+##### Factura PDF
+![Factura PDF](imagenes/factura.png)
 
 #### 8. Flujo de facturación: visualizar, eliminar y descargar facturas para administradores y usuarios normales
 
@@ -80,27 +78,6 @@
 
 ##### Aprobación de cuentas de usuarios normales
 ![Aprobación de cuentas de usuarios normales](imagenes/habilitarUsuarios.png)
-
-
-## Contenidow
-
-- [Características](#caracter%C3%ADsticas)
-- [Arquitectura](#arquitectura)
-- [Tecnologías](#tecnolog%C3%ADas)
-- [Estructura de carpetas](#estructura-de-carpetas)
-- [Requisitos previos](#requisitos-previos)
-- [Instalación](#instalaci%C3%B3n)
-- [Ejecución con Docker Compose](#ejecuci%C3%B3n-con-docker-compose)
-- [Ejecución manual](#ejecuci%C3%B3n-manual)
-- [Variables de entorno](#variables-de-entorno)
-- [Endpoints principales](#endpoints-principales)
-- [Mejoras futuras](#mejoras-futuras)
-- [Buenas prácticas](#buenas-pr%C3%A1cticas-implementadas)
-- [Deploy](#deploy)
-- [Autor](#autor)
-- [Licencia](#licencia)
-
----
 
 ## Características principales
 
@@ -143,15 +120,18 @@ Proyecto construido con una arquitectura clásica de 3 capas:
 
 ```text
 ProyectoCafeteria/
-├── backend/                 # API Spring Boot
-│   ├── src/main/java/...    # Código Java
-│   ├── src/main/resources/  # Configuración y properties
-│   ├── pom.xml              # Dependencias y build
-│   └── mvnw                 # Wrapper Maven
-├── frontend/                # Aplicación Angular
+├── backend/                 # API desarrollada con Spring Boot
+│   ├── src/main/java/...    # Código fuente Java
+│   ├── src/main/resources/  # Archivos de configuración y properties
+│   ├── pom.xml              # Dependencias y configuración Maven
+│   ├── Dockerfile           # Configuración de la imagen Docker
+│   └── mvnw                 # Wrapper de Maven
+├── frontend/                # Aplicación desarrollada con Angular
 │   ├── src/                 # Código fuente Angular
 │   ├── package.json         # Dependencias y scripts
+│   ├── Dockerfile           # Configuración de la imagen Docker
 │   └── angular.json         # Configuración del proyecto Angular
+├── imagenes/                # Capturas de pantalla del proyecto
 ├── docker-compose.yml       # Definición de servicios Docker
 └── .gitignore               # Archivos ignorados por Git
 ```
@@ -195,16 +175,16 @@ cd ../backend
 
 ## Ejecución con Docker Compose
 
+### Paso 1: Construir las imágenes del backend y frontend
+
+```bash
+docker compose build
+```
+
 ### Opción 1: Iniciar los contenedores
 
 ```bash
 docker compose up -d
-```
-
-### Opción 2: Con Docker Compose clásico
-
-```bash
-docker-compose up -d
 ```
 
 ### Servicios expuestos
@@ -239,13 +219,6 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-3. Alternativa con paquete JAR:
-
-```bash
-./mvnw clean package
-java -jar target/com.ec.cafe-0.0.1-SNAPSHOT.jar
-```
-
 ### Frontend
 
 1. Ir al directorio frontend:
@@ -254,10 +227,15 @@ java -jar target/com.ec.cafe-0.0.1-SNAPSHOT.jar
 cd frontend
 ```
 
-2. Ejecutar Angular en modo desarrollo:
+2. Instalar dependencias
 
 ```bash
-npm start
+npm install
+
+3. Ejecutar Angular en modo desarrollo:
+
+```bash
+ng serve 
 ```
 
 3. Acceder en el navegador:
@@ -265,9 +243,6 @@ npm start
 ```text
 http://localhost:4200
 ```
-
-> Si usas Docker Compose y quieres ejecutar solo frontend o backend, asegúrate de configurar la URL API en el frontend y el `spring.datasource.url` del backend.
-
 ---
 
 ## Variables de entorno
@@ -284,8 +259,8 @@ MAIL_PASSWORD=<tu-mail-password>
 
 ```properties
 spring.datasource.url=jdbc:mysql://db:3306/cafeSystem
-spring.datasource.username=root
-spring.datasource.password=admin
+spring.datasource.username=<tu_username>
+spring.datasource.password=<tu_password>
 server.port=8081
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
@@ -332,15 +307,6 @@ Base URL: `http://localhost:8081`
 
 ---
 
-## Deploy
-
-Para un deployment profesional en producción, considera:
-
-- Usar `docker compose` con `build` local o imágenes privadas.
-- Configurar variables seguras en un `secrets` manager.
-- Usar `Nginx` o `Cloudflare` para servir el frontend y manejar HTTPS.
-- Implementar CI/CD para tests y despliegue automático.
-
 ## Mejoras futuras
 
 - Autenticación con OAuth2 o social login
@@ -366,8 +332,3 @@ Para un deployment profesional en producción, considera:
 - **Proyecto:** Proyecto Cafetería
 - **Perfil:** Frontend Angular + Backend Spring Boot
 
-> Este proyecto está preparado para mostrarse en un portafolio profesional. Destaca la integración de una SPA Angular con un backend Java sólido y un despliegue claro con Docker.
-
-## Licencia
-
-Este proyecto está bajo la licencia **MIT**. Consulta el archivo `LICENSE` si deseas agregarlo.
