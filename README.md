@@ -19,53 +19,69 @@
 
 1. Acciones disponibles para usuarios administradores y usuarios normales
 
-![Registrarse](imagenes/registrarUsuario.png)
+### Registro de usuarios
+![Registro de usuarios](imagenes/registrarUsuario.png)
 
-![Iniciar Sesión](imagenes/iniciarSesion.png)
+### Inicio de sesión
+![Inicio de sesión](imagenes/iniciarSesion.png)
 
-![Recuperar Contraseña](imagenes/recuperarContrasenia.png)
+### Recuperación de contraseña
+![Recuperación de contraseña](imagenes/recuperarContrasenia.png)
 
+### Mensaje de recuperación en Mailinator
 ![Mensaje de recuperación en Mailinator](imagenes/mensajeRecuperacion.png)
 
-![Cambiar Contraseña](imagenes/cambiarContrasenia)
+### Cambio de contraseña
+![Cambio de contraseña](imagenes/cambiarContrasenia.png)
 
 2. Pantalla principal del dashboard para administradores y usuarios normales
 
-![Dashboard](imagenes/dashboard.png)
+### Dashboard principal
+![Dashboard principal](imagenes/dashboard.png)
 
 3. Gestión de categorías para usuarios administradores
 
-![Agregar Categoría](imagenes/agregarCategoria.png)
+### Agregar categoría
+![Agregar categoría](imagenes/agregarCategoria.png)
 
-![Panel de Categorías](imagenes/panelCategoria.png)
+### Panel de categorías
+![Panel de categorías](imagenes/panelCategoria.png)
 
 4. Gestión de productos para usuarios administradores
 
-![Agregar Producto](imagenes/agregarProducto.png)
+### Agregar producto
+![Agregar producto](imagenes/agregarProducto.png)
 
-![Panel de Productos](imagenes/panelProductos.png)
+### Panel de productos
+![Panel de productos](imagenes/panelProductos.png)
 
 5. Administración de pedidos y descarga de facturas PDF para administradores y usuarios normales
 
-![Panel de Administración de Pedidos](imagenes/administrarPedido.png)
+### Administración de pedidos
+![Administración de pedidos](imagenes/administrarPedido.png)
 
 6. Flujo de facturación: visualizar, eliminar y descargar facturas para administradores y usuarios normales
 
-![Panel de Facturas](imagenes/panelfactura.png)
+### Panel de facturas
+![Panel de facturas](imagenes/panelfactura.png)
 
-![Visualización de Factura](imagenes/verFactura.png)
+### Visualización de factura
+![Visualización de factura](imagenes/verFactura.png)
 
 7. Edición de usuarios y roles para administradores
 
-![Aprobar cuentas de usuarios normales](imagenes/habilitarUsuarios.png)
+### Aprobación de cuentas de usuarios normales
+![Aprobación de cuentas de usuarios normales](imagenes/habilitarUsuarios.png)
 
 8. Funciones disponibles para usuarios administradores
 
-![Funciones Admin](imagenes/funcionesAdmin.png)
+### Funciones de administrador
+![Funciones de administrador](imagenes/funcionesAdmin.png)
 
 9. Funciones disponibles para usuarios normales
 
-![Funciones Usuarios](imagenes/funcionesUsuarios.png)
+### Funciones de usuarios normales
+![Funciones de usuarios normales](imagenes/funcionesUsuarios.png)
 
 ## Contenidow
 
