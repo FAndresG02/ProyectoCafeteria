@@ -10,8 +10,6 @@
 
 **Proyecto Cafetería** es una aplicación fullstack de gestión de cafetería que combina una interfaz Angular moderna con un backend Spring Boot robusto y una base de datos MySQL. Está diseñada para ser un proyecto de portafolio profesional enfocado en la gestión de usuarios, productos, categorías, pedidos y facturación.
 
-> Un sistema realista para administrar operaciones de café, generar facturas en PDF, controlar inventario y manejar permisos de usuario.
-
 ## Demo
 
 - **Frontend:** `http://localhost:82`
@@ -20,20 +18,19 @@
 ### Capturas de pantalla sugeridas
 
 1. Pantalla principal del dashboard
-2. Gestión de productos y categorías
-3. Flujo de facturación / PDF
-4. Edición de usuarios y roles
-
-> Inserta las imágenes en estas secciones cuando tengas capturas listas.
-
-### Ejemplo de sección de imágenes
-
-```md
-![Dashboard](docs/screenshots/dashboard.png)
-![Gestión de productos](docs/screenshots/products.png)
-``` 
-
----
+![Dashboard](imagenes/dashboard.png) 
+2. Gestión de categorías
+![Agregar Categoria](imagenes/agregarCategoria.png)
+![Panel Categoria](imagenes/panelCategoria.png)
+3. Gestión de productos
+![Agregar Producto](imagenes/agregarProducto.png)
+![Panel Productos](imagenes/panelProductos.png)
+4. Administrar Pedido y descargar factura pdf
+![Panel realizar pedido](imagenes/administrarPedido.png)
+4. Flujo de facturación (ver, eliminar y descargar factura)
+![Panel facturas](imagenes/panelfactura.png)
+![Panel facturas](imagenes/verFactura.png)
+5. Edición de usuarios y roles
 
 ## Contenido
 
