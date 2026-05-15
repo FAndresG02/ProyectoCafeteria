@@ -34,12 +34,20 @@
 ##### Cambio de contraseña
 ![Cambio de contraseña](imagenes/cambiarContrasenia.png)
 
-#### 2. Pantalla principal del dashboard para administradores y usuarios normales
+#### 2. Funciones disponibles para usuarios administradores
+
+![Funciones de administrador](imagenes/funcionesAdmin.png)
+
+#### 3. Funciones disponibles para usuarios normales
+
+![Funciones de usuarios normales](imagenes/funcionesUsuarios.png)
+
+#### 4. Pantalla principal del dashboard para administradores y usuarios normales
 
 ##### Dashboard principal
 ![Dashboard principal](imagenes/dashboard.png)
 
-#### 3. Gestión de categorías para usuarios administradores
+#### 5. Gestión de categorías para usuarios administradores
 
 ##### Agregar categoría
 ![Agregar categoría](imagenes/agregarCategoria.png)
@@ -47,7 +55,7 @@
 ##### Panel de categorías
 ![Panel de categorías](imagenes/panelCategoria.png)
 
-#### 4. Gestión de productos para usuarios administradores
+#### 6. Gestión de productos para usuarios administradores
 
 ##### Agregar producto
 ![Agregar producto](imagenes/agregarProducto.png)
@@ -55,12 +63,12 @@
 ##### Panel de productos
 ![Panel de productos](imagenes/panelProductos.png)
 
-#### 5. Administración de pedidos y descarga de facturas PDF para administradores y usuarios normales
+#### 7. Administración de pedidos y descarga de facturas PDF para administradores y usuarios normales
 
 ##### Administración de pedidos
 ![Administración de pedidos](imagenes/administrarPedido.png)
 
-#### 6. Flujo de facturación: visualizar, eliminar y descargar facturas para administradores y usuarios normales
+#### 8. Flujo de facturación: visualizar, eliminar y descargar facturas para administradores y usuarios normales
 
 ##### Panel de facturas
 ![Panel de facturas](imagenes/panelfactura.png)
@@ -68,20 +76,11 @@
 ##### Visualización de factura
 ![Visualización de factura](imagenes/verFactura.png)
 
-#### 7. Edición de usuarios y roles para administradores
+#### 9. Edición de usuarios y roles para administradores
 
 ##### Aprobación de cuentas de usuarios normales
 ![Aprobación de cuentas de usuarios normales](imagenes/habilitarUsuarios.png)
 
-#### 8. Funciones disponibles para usuarios administradores
-
-##### Funciones de administrador
-![Funciones de administrador](imagenes/funcionesAdmin.png)
-
-#### 9. Funciones disponibles para usuarios normales
-
-##### Funciones de usuarios normales
-![Funciones de usuarios normales](imagenes/funcionesUsuarios.png)
 
 ## Contenidow
 
