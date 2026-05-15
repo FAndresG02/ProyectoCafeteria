@@ -15,24 +15,59 @@
 - **Frontend:** `http://localhost:82`
 - **Backend API:** `http://localhost:8081`
 
-### Capturas de pantalla sugeridas
+### Capturas de pantalla
 
-1. Pantalla principal del dashboard
-![Dashboard](imagenes/dashboard.png) 
-2. Gestión de categorías
-![Agregar Categoria](imagenes/agregarCategoria.png)
-![Panel Categoria](imagenes/panelCategoria.png)
-3. Gestión de productos
+1. Acciones disponibles para usuarios administradores y usuarios normales
+
+![Registrarse](imagenes/registrarUsuario.png)
+
+![Iniciar Sesión](imagenes/iniciarSesion.png)
+
+![Recuperar Contraseña](imagenes/recuperarContrasenia.png)
+
+![Mensaje de recuperación en Mailinator](imagenes/mensajeRecuperacion.png)
+
+![Cambiar Contraseña](imagenes/cambiarContrasenia)
+
+2. Pantalla principal del dashboard para administradores y usuarios normales
+
+![Dashboard](imagenes/dashboard.png)
+
+3. Gestión de categorías para usuarios administradores
+
+![Agregar Categoría](imagenes/agregarCategoria.png)
+
+![Panel de Categorías](imagenes/panelCategoria.png)
+
+4. Gestión de productos para usuarios administradores
+
 ![Agregar Producto](imagenes/agregarProducto.png)
-![Panel Productos](imagenes/panelProductos.png)
-4. Administrar Pedido y descargar factura pdf
-![Panel realizar pedido](imagenes/administrarPedido.png)
-4. Flujo de facturación (ver, eliminar y descargar factura)
-![Panel facturas](imagenes/panelfactura.png)
-![Panel facturas](imagenes/verFactura.png)
-5. Edición de usuarios y roles
 
-## Contenido
+![Panel de Productos](imagenes/panelProductos.png)
+
+5. Administración de pedidos y descarga de facturas PDF para administradores y usuarios normales
+
+![Panel de Administración de Pedidos](imagenes/administrarPedido.png)
+
+6. Flujo de facturación: visualizar, eliminar y descargar facturas para administradores y usuarios normales
+
+![Panel de Facturas](imagenes/panelfactura.png)
+
+![Visualización de Factura](imagenes/verFactura.png)
+
+7. Edición de usuarios y roles para administradores
+
+![Aprobar cuentas de usuarios normales](imagenes/habilitarUsuarios.png)
+
+8. Funciones disponibles para usuarios administradores
+
+![Funciones Admin](imagenes/funcionesAdmin.png)
+
+9. Funciones disponibles para usuarios normales
+
+![Funciones Usuarios](imagenes/funcionesUsuarios.png)
+
+## Contenidow
 
 - [Características](#caracter%C3%ADsticas)
 - [Arquitectura](#arquitectura)

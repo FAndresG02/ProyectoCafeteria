@@ -148,8 +148,8 @@ export class Product implements OnInit {
       price: formData.price
     }
 
-    //nos subcribimos al metodo para crear
-    this.productService.add(data).subscribe((response: any) => {
+    //nos subcribimos al metodo para editar
+    this.productService.update(data).subscribe((response: any) => {
       //Cerrar el diálogo después de mostrar el mensaje
       this.dialogRef.close();
       //Emitimos la accion al padre en este caso Editar un producto 
