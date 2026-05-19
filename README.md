@@ -8,7 +8,7 @@
 
 ## Descripción
 
-**Proyecto Cafetería** es una aplicación fullstack de gestión de cafetería que combina una interfaz Angular moderna con un backend Spring Boot robusto y una base de datos MySQL. Está diseñada para ser un proyecto de portafolio profesional enfocado en la gestión de usuarios, productos, categorías, pedidos y facturación.
+**Proyecto Cafetería** es una aplicación fullstack de gestión de cafetería que combina una interfaz Angular moderna con un backend Spring Boot robusto y una base de datos MySQL. Está diseñada para la gestión de usuarios, productos, categorías, pedidos y facturación.
 
 ## Demo
 
